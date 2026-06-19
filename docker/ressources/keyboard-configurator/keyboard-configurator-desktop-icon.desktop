@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Configure keyboard layout
+Exec=/usr/local/bin/keyboard-configurator-desktop-icon.sh
+Terminal=false
+Hidden=false
+X-GNOME-Autostart-enabled=true
+
+

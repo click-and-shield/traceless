@@ -1,0 +1,4 @@
+*.iso
+live-build
+.apt-cache
+.AppImage

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Create a PED device
+Comment=Create a PED device
+Exec=xfce4-terminal -e "/usr/local/bin/create-ped-device.sh"
+Icon=create-ped-device
+Terminal=false
+Categories=Settings;

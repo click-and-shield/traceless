@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Open a PED device
+Comment=Open a PED device
+Exec=xfce4-terminal -e "/usr/local/bin/open-ped-device.sh"
+Icon=open-ped-device
+Terminal=false
+Categories=Settings;

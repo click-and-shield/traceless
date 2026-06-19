@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Electrum Bitcoin Wallet
+GenericName=Bitcoin Wallet
+Comment=Lightweight Bitcoin wallet
+Exec=/usr/local/bin/electrum.sh
+Icon=electrum
+Terminal=false
+Categories=Finance;
+StartupNotify=true

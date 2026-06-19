@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Keyboard Settings
+Comment=Configure keyboard layout
+Exec=/usr/local/bin/keyboard-configurator.sh
+Icon=input-keyboard
+Terminal=false
+Categories=Settings;

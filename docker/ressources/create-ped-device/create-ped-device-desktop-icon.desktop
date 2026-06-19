@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Create a PED device
+Exec=/usr/local/bin/create-ped-device-desktop-icon.sh
+Terminal=false
+Hidden=false
+X-GNOME-Autostart-enabled=true

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Close a PED device
+Comment=Close a PED device
+Exec=xfce4-terminal -e "/usr/local/bin/close-ped-device.sh"
+Icon=close-ped-device
+Terminal=false
+Categories=Settings;

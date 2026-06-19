@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Close a PED device
+Exec=/usr/local/bin/close-ped-device-desktop-icon.sh
+Terminal=false
+Hidden=false
+X-GNOME-Autostart-enabled=true

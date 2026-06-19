@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Create Electrum Desktop Icon
+Exec=/usr/local/bin/electrum-desktop-icon.sh
+Terminal=false
+Hidden=false
+X-GNOME-Autostart-enabled=true
