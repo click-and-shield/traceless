@@ -41,7 +41,7 @@ This project demonstrates how to build a customized Debian-based operating syste
          <img src="docker/ressources/create-ped-device/create-ped-device.svg" align="right" alt="Create PED device" width="128px" height="128px" />
       </td>
       <td>
-         Create a PED device.
+         Create a PED (Plausibly Deniable Encrypted) device. A storage device encrypted with LUKS using a detached header. The encrypted partition occupies the entire device and does not contain the LUKS header, making it difficult to distinguish from random data.
       </td>
    </tr>
 
