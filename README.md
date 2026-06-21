@@ -35,12 +35,45 @@ This project demonstrates how to build a customized Debian-based operating syste
 
 ### Added Features
 
-* Encryption with plausible deniability:
-  * Create a USB storage device protected by LUKS encryption with plausible deniability through a detached header.
-  * Open an encrypted USB storage device using its detached LUKS header.
-  * Safely close and lock an encrypted USB storage device.
-* Configure the keyboard.
-* Change the user password.
+<table style="padding:10px">
+   <tr>
+      <td>
+         <img src="docker/ressources/create-ped-device/create-ped-device.svg" align="right" alt="Create PED device" width="128px" height="128px" />
+      </td>
+      <td>
+         Create a PED device.
+      </td>
+   </tr>
+
+   <tr>
+      <td>
+         <img src="docker/ressources/open-ped-device/open-ped-device.svg" align="right" alt="Open a PED device" width="128px" height="128px" />
+      </td>
+      <td>
+         Open a PED device.
+      </td>
+   </tr>
+
+   <tr>
+      <td>
+         <img src="docker/ressources/close-ped-device/close-ped-device.svg" align="right" alt="Close a PED device" width="128px" height="128px" />
+      </td>
+      <td>
+         Close a PED device.
+      </td>
+   </tr>
+
+   <tr>
+      <td>
+         <img src="docker/ressources/password-changer/password-changer.svg" align="right" alt="Change the user's password" width="128px" height="128px" />
+      </td>
+      <td>
+         Change the user's password.
+      </td>
+   </tr>      
+</table>
+
+
 
 ## Building the ISO Image
 
