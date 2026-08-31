@@ -53,7 +53,7 @@ This project demonstrates how to build a customized Debian-based operating syste
          <img src="docker/ressources/create-ped-device/create-ped-device.svg" align="right" alt="Create PDE device" width="128px" height="128px" />
       </td>
       <td>
-         **Create a PDE ([Plausibly Deniable Encrypted](https://en.wikipedia.org/wiki/Deniable_encryption)) device**.
+         <b>Create a PDE ([Plausibly Deniable Encrypted](https://en.wikipedia.org/wiki/Deniable_encryption)) device</b>.
          A storage device encrypted with LUKS using a detached header. The encrypted partition occupies the entire device and does not contain the LUKS header, making it difficult to distinguish from random data.
       </td>
    </tr>
@@ -63,7 +63,7 @@ This project demonstrates how to build a customized Debian-based operating syste
          <img src="docker/ressources/open-ped-device/open-ped-device.svg" align="right" alt="Open a PDE device" width="128px" height="128px" />
       </td>
       <td>
-         **Open a PDE device**.
+         <b>Open a PDE device</b>.
       </td>
    </tr>
 
@@ -72,7 +72,7 @@ This project demonstrates how to build a customized Debian-based operating syste
          <img src="docker/ressources/close-ped-device/close-ped-device.svg" align="right" alt="Close a PDE device" width="128px" height="128px" />
       </td>
       <td>
-         **Close a PDE device**.
+         <b>Close a PDE device</b>.
       </td>
    </tr>
 
@@ -81,7 +81,7 @@ This project demonstrates how to build a customized Debian-based operating syste
          <img src="docker/ressources/password-changer/password-changer.svg" align="right" alt="Change the user's password" width="128px" height="128px" />
       </td>
       <td>
-         **Change the user's password**.
+         <b>Change the user's password</b>.
          At startups, no authentication is required. However, the session may lock itself after a certain inactivity period. In this case, you need the password for the user `user`:
 
 * **user**: `user`
@@ -98,7 +98,7 @@ The default password may be changed by clicking on this desktop icon.
          <img src="docker/ressources/keyboard-configurator/input-keyboard.svg" align="right" alt="Change the user's password" width="128px" height="128px" />
       </td>
       <td>
-         **Change the keyboard's configuration**.
+         <b>Change the keyboard's configuration</b>.
          The default keyboard's layout is **French AZERTY**. You can configure the keyboard easily once the OS has booted by clicking on this desktop icon.
       </td>
    </tr>
