@@ -23,19 +23,34 @@ declare -r __DIR__
 declare -r BUILD_DIR="${__DIR__}/../live-build"
 declare -r CACHE_DIR="${__DIR__}/.apt-cache"
 
+echo "BUILD_DIR: ${BUILD_DIR}"
+echo "CACHE_DIR: ${CACHE_DIR}"
+
+echo "--- S/Docker info ---"
+docker context show
+echo "${DOCKER_HOST:-<non définie>}"
+docker info --format 'Docker host: {{.Name}}'
+echo "--- E/Docker info ---"
+
 if [ ! -d  "${BUILD_DIR}" ]; then
+  echo "Create ${BUILD_DIR}"
   mkdir -p "${BUILD_DIR}"
 fi
 
 if [ ! -d  "${CACHE_DIR}" ]; then
+  echo "Create ${CACHE_DIR}"
   mkdir -p "${CACHE_DIR}"
 fi
 
 
 # Copy the files that will be used to build the ISO image.
+echo "Copy \"${__DIR__}/ressources/*\" into \"${BUILD_DIR}/\""
 cp -R "${__DIR__}"/ressources/* "${BUILD_DIR}/"
 find "${BUILD_DIR}/" -type f -name "*.sh" -exec dos2unix {} \;
 find "${BUILD_DIR}/" -type f -name "*.sh" -exec chmod +x {} \;
+
+ls -la "${BUILD_DIR}"
+ls -la "${CACHE_DIR}"
 
 echo "Working directory: \"${BUILD_DIR}\""
 

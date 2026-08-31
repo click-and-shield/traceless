@@ -389,7 +389,7 @@ install_app() {
 		chmod +x "${TARGET}"
 	fi
 
-	# Declare the entry in the application selector (create-ped-device.desktop).
+	# Declare the entry in the application selector.
 	# - Declaration:       <app name>.desktop
 	# - Script to execute: <app name>.sh
 	if [ -f "${LOCAL_SRC}/${DESKTOP_ENTRY}" ]; then
@@ -417,6 +417,66 @@ install_app() {
 	fi
 }
 
+install_privacy_tools() {
+	local -r SOURCE_DIR="${WORKSPACE}/privacy-tools"
+	local -r INSTALL_DIR="config/includes.chroot_after_packages/opt/privacy-tools"
+	local -r AUTOSTART_SCRIPT="${LOCAL_BIN_DIR}/privacy-tools-desktop.sh"
+	local -r AUTOSTART_ENTRY="${SYSTEM_WIDE_AUTOSTART_DIR}/privacy-tools-desktop.desktop"
+
+	if [ ! -d "${SOURCE_DIR}" ]; then
+		echo "The container directory \"${SOURCE_DIR}\" does not exist!"
+		exit 1
+	fi
+
+	# Installer les fichiers dans une zone système en lecture seule.
+	mkdir -p "${INSTALL_DIR}"
+	cp -a "${SOURCE_DIR}/." "${INSTALL_DIR}/"
+
+	# Installer le script exécuté sous l'utilisateur lors de sa connexion.
+	create_local_binary_directory
+
+	cat >"${AUTOSTART_SCRIPT}" <<-'EOL'
+	#!/bin/sh
+	set -eu
+
+	SOURCE_DIR="/opt/privacy-tools"
+
+	DESKTOP_DIR="$(xdg-user-dir DESKTOP 2>/dev/null || true)"
+	if [ -z "${DESKTOP_DIR}" ] || [ "${DESKTOP_DIR}" = "${HOME}" ]; then
+		DESKTOP_DIR="${HOME}/Desktop"
+	fi
+
+	TARGET_DIR="${DESKTOP_DIR}/privacy-tools"
+
+	if [ ! -d "${SOURCE_DIR}" ]; then
+	    exit 1
+	fi
+
+	# Ne pas remplacer une copie déjà présente pendant cette session Live.
+	if [ -e "${TARGET_DIR}" ]; then
+	    exit 0
+	fi
+
+	mkdir -p "${TARGET_DIR}"
+	cp -R "${SOURCE_DIR}/." "${TARGET_DIR}/"
+	EOL
+
+	chmod +x "${AUTOSTART_SCRIPT}"
+
+	# Déclarer le script dans l'autostart XFCE.
+	create_system_wide_autostart_directory
+
+	cat >"${AUTOSTART_ENTRY}" <<-'EOL'
+	[Desktop Entry]
+	Type=Application
+	Name=Copy Privacy Tools to Desktop
+	Exec=/usr/local/bin/privacy-tools-desktop.sh
+	Terminal=false
+	Hidden=false
+	X-GNOME-Autostart-enabled=true
+	OnlyShowIn=XFCE;
+	EOL
+}
 
 main() {
 	configure_xfce_keyboard
@@ -436,9 +496,9 @@ main() {
 	install_app "keyboard-configurator"
 	install_app "luckyluks"
 	install_app "keepassxc"
+	install_privacy_tools
 	update_os
 	lb build
 }
 
 main
-

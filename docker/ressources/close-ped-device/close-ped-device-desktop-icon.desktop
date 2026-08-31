@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Close a PED device
+Name=Close a PDE device
 Exec=/usr/local/bin/close-ped-device-desktop-icon.sh
 Terminal=false
 Hidden=false

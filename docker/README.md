@@ -13,8 +13,7 @@ docker build -t debian-trixie .
 Run the script [`start-container.sh`](start-container.sh):
 
 ```bash
-dos2unix *.sh && chmod +x *.sh
-./start-container.sh
+dos2unix *.sh && chmod +x *.sh && ./start-container.sh
 ```
 
 The script performs the following actions:

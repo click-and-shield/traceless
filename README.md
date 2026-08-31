@@ -12,14 +12,19 @@ In such scenarios, a safer approach is to work from an operating system that nev
 
 This project demonstrates how to build a customized Debian-based operating system designed to run entirely from a read-only USB drive.
 
-### Key Features
+## Key Features
 
 * Runs entirely in RAM.
 * Does not require mounting a hard drive.
 * Designed for privacy-sensitive operations.
 * Includes a curated set of security and productivity tools.
 
-### Included Software
+## Requirements
+
+* **USB key**: 16Gb or more.
+* **RAM**: 12Gb or more.
+
+## Included Software
 
 * [KeePassXC](https://keepassxc.org/) – Password manager.
 * [Cryptsetup](https://gitlab.com/cryptsetup/cryptsetup) – Disk and container encryption utility based on LUKS.
@@ -32,34 +37,42 @@ This project demonstrates how to build a customized Debian-based operating syste
 * [Firefox ESR](https://www.mozilla.org/firefox/) – Extended Support Release of the Firefox web browser.
 * [LibreOffice Writer](https://www.libreoffice.org/) – Open-source word processor.
 * [Electrum](https://electrum.org/): Open-source Bitcoin wallet that supports the lightning network.
+* [Privacy tools](https://github.com/click-and-shield/privacy-forge):
+  * Quickly encrypt and decrypt text using a highly secure algorithm (AES-256 in GCM mode with PBKDF2/SHA-256 key derivation).
+  * Quickly encrypt using a public key, and decrypt using a private key.
+  * Quickly sign using a private key, and verify using a public key.
+  * Encrypt, decrypt, sign, verify, and generate GPG/OpenPGP key pairs entirely in the browser.
+  * Share and reconstruct a secret using Shamir's secret sharing algorithm.
+  * Create QR codes from text.
 
-### Added Features
+## Added Features
 
 <table style="padding:10px">
    <tr>
       <td>
-         <img src="docker/ressources/create-ped-device/create-ped-device.svg" align="right" alt="Create PED device" width="128px" height="128px" />
+         <img src="docker/ressources/create-ped-device/create-ped-device.svg" align="right" alt="Create PDE device" width="128px" height="128px" />
       </td>
       <td>
-         Create a PED (Plausibly Deniable Encrypted) device. A storage device encrypted with LUKS using a detached header. The encrypted partition occupies the entire device and does not contain the LUKS header, making it difficult to distinguish from random data.
-      </td>
-   </tr>
-
-   <tr>
-      <td>
-         <img src="docker/ressources/open-ped-device/open-ped-device.svg" align="right" alt="Open a PED device" width="128px" height="128px" />
-      </td>
-      <td>
-         Open a PED device.
+         **Create a PDE ([Plausibly Deniable Encrypted](https://en.wikipedia.org/wiki/Deniable_encryption)) device**.
+         A storage device encrypted with LUKS using a detached header. The encrypted partition occupies the entire device and does not contain the LUKS header, making it difficult to distinguish from random data.
       </td>
    </tr>
 
    <tr>
       <td>
-         <img src="docker/ressources/close-ped-device/close-ped-device.svg" align="right" alt="Close a PED device" width="128px" height="128px" />
+         <img src="docker/ressources/open-ped-device/open-ped-device.svg" align="right" alt="Open a PDE device" width="128px" height="128px" />
       </td>
       <td>
-         Close a PED device.
+         **Open a PDE device**.
+      </td>
+   </tr>
+
+   <tr>
+      <td>
+         <img src="docker/ressources/close-ped-device/close-ped-device.svg" align="right" alt="Close a PDE device" width="128px" height="128px" />
+      </td>
+      <td>
+         **Close a PDE device**.
       </td>
    </tr>
 
@@ -68,69 +81,47 @@ This project demonstrates how to build a customized Debian-based operating syste
          <img src="docker/ressources/password-changer/password-changer.svg" align="right" alt="Change the user's password" width="128px" height="128px" />
       </td>
       <td>
-         Change the user's password.
-      </td>
-   </tr>      
-</table>
-
-
-
-## Building the ISO Image
-
-To simplify the build process, the project includes a Docker environment containing all required dependencies.
-
-### Build the Docker Image
-
-```bash
-docker build -t debian-trixie -f docker/Dockerfile docker
-```
-
-### Generate the ISO
-
-1. Edit `docker/build.sh` according to your requirements:
-
-   * **Optional**: configure keyboard layout. The default keyboard is `French AZERTY`. Please note that you can configure the keyboard easily once the OS has booted. Click [here](doc/images/config-kb.png) for details.
-   * Add or remove packages.
-   * Customize the system configuration.
-   * Add scripts and configuration files.
-
-2. Start the build container:
-
-   ```bash
-   dos2unix docker/*.sh && chmod +x docker/*.sh && docker/start-container.sh
-   ```
-
-3. Inside the container, run:
-
-   ```bash
-   bash /workspace/build.sh
-   ```
-
-If the build completes successfully, the generated ISO image will be available at:
-
-```text
-/workspace/secure_live/live-image-amd64.hybrid.iso
-```
-
-> The container directory `/workspace` is mapped to the host directory `live-build`.
-
-## Login
-
-At startups, no authentication is required. However, the session may lock itself after a certain inactivity period. In this case, you need the password for the user `user`:
+         **Change the user's password**.
+         At startups, no authentication is required. However, the session may lock itself after a certain inactivity period. In this case, you need the password for the user `user`:
 
 * **user**: `user`
 * **default password**: `live`
 
-The default password may be changed by using the application "change password".
+The default password may be changed by clicking on this desktop icon.
 
 > Please remember that any configuration persists only until the next reboot!
+      </td>
+   </tr>
+
+   <tr>
+      <td>
+         <img src="docker/ressources/keyboard-configurator/input-keyboard.svg" align="right" alt="Change the user's password" width="128px" height="128px" />
+      </td>
+      <td>
+         **Change the keyboard's configuration**.
+         The default keyboard's layout is **French AZERTY**. You can configure the keyboard easily once the OS has booted by clicking on this desktop icon.
+      </td>
+   </tr>
+
+</table>
 
 ## Screenshots
 
+### Overview
+
 ![](doc/images/vm.png)
+
+### Configuring the keyboard
+
+![](doc/images/config-kb.png)
+
+### Change the user's password
+
+![](doc/images/change-passwd.png)
 
 ## Extra documentation
 
+* [Building the ISO image](doc/build.md)
 * [Testing the ISO image using a VM](doc/testing.md)
 * [Create a bootable USB key from the generated ISO file](doc/burning.md)
 * [XFCE notes](doc/xfce.md)

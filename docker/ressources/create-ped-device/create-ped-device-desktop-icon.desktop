@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Create a PED device
+Name=Create a PDE device
 Exec=/usr/local/bin/create-ped-device-desktop-icon.sh
 Terminal=false
 Hidden=false

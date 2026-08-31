@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Open a PED device
+Name=Open a PDE device
 Exec=/usr/local/bin/open-ped-device-desktop-icon.sh
 Terminal=false
 Hidden=false
