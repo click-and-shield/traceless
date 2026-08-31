@@ -53,7 +53,7 @@ This project demonstrates how to build a customized Debian-based operating syste
          <img src="docker/ressources/create-ped-device/create-ped-device.svg" align="right" alt="Create PDE device" width="128px" height="128px" />
       </td>
       <td>
-         <b>Create a PDE <a href="https://en.wikipedia.org/wiki/Deniable_encryption">Plausibly Deniable Encrypted</a></b>.
+         <b>Create a PDE <a href="https://en.wikipedia.org/wiki/Deniable_encryption">Plausibly Deniable Encrypted</a> storage device</b>.
          A storage device encrypted with LUKS using a detached header. The encrypted partition occupies the entire device and does not contain the LUKS header, making it difficult to distinguish from random data.
       </td>
    </tr>
