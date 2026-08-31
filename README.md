@@ -99,7 +99,7 @@ The default password may be changed by clicking on this desktop icon.
       </td>
       <td>
          <b>Change the keyboard's configuration</b>.
-         The default keyboard's layout is **French AZERTY**. You can configure the keyboard easily once the OS has booted by clicking on this desktop icon.
+         The default keyboard's layout is <b>French AZERTY</b>. You can configure the keyboard easily once the OS has booted by clicking on this desktop icon.
       </td>
    </tr>
 
