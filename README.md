@@ -119,6 +119,10 @@ The default password may be changed by clicking on this desktop icon.
 
 ![](doc/images/change-passwd.png)
 
+### Privacy tools
+
+![](doc/images/privacy-tools.png)
+
 ## Extra documentation
 
 * [Building the ISO image](doc/build.md)
